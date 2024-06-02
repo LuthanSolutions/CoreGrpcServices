@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+option csharp_namespace = "CoreGrpcServices";
+
+message CoreDefaultResponseObject {
+	repeated google.protobuf.Any Content = 1;
+	repeated Error Errors = 2;
+	MetaDataInfo MetaDataInfo = 3;
+	string ResultType = 4;
+	bool HasErrors = 5;
+
+}
+
+message Error {
+	string Code = 1;
+	string Description = 2;
+}
+
+message MetaDataInfo {
+	string DataSource = 1;
+	string CacheEvent = 2;
+	int32 Count = 3;
+}
